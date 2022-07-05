@@ -1,5 +1,4 @@
-import e from "express";
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const characterScheme = new MongooseScheme({
   name: {
@@ -24,8 +23,6 @@ const characterScheme = new MongooseScheme({
   },
 });
 
-const Character = mongoose.model('Character', characterScheme ,'person');
+const Character = mongoose.model('character', characterScheme );
 
-module.exports = {
-    Character
-};
+module.exports = Character;

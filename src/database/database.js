@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-const DATABASE_URL = "mongoose://localhost27017/rick_n_morty";
+const mongoose = require('mongoose');
+const DATABASE_URL = "mongodb://localhost:27017/rick-and-morty";
 
 function connectToDb() {
   mongoose

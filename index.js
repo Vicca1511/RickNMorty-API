@@ -12,12 +12,6 @@ app.use(express.json());
 
 connectToDb();
 
-app.get('/', (req, res) =>{
-    res.send({message: 'Hello, world!'});
-})
-
-
-
 app.listen(port, () => {
   console.log(`Servidor rodando em: http://localhost:${port}`);
 });
