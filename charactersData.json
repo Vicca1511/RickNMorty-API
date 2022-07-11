@@ -1,22 +1,9 @@
 [
-    {
+  {
     "name": "test",
     "username": "test",
     "email": "test@example",
     "password": "test password",
     "photo": "test photo"
-},
-{
-    "name": "test",
-    "username": "test",
-    "email": "test@example",
-    "password": "test password",
-    "photo": "test photo"
-},{
-    "name": "test",
-    "username": "test",
-    "email": "test@example",
-    "password": "test password",
-    "photo": "test photo"
-}
+  }
 ]
