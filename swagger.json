@@ -11,12 +11,12 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/character",
+      "url": "http://localhost:3001/character",
       "description": "prototype API"
     },
     {
-      "url": "",
-      "description": ""
+      "url": "https://dashboard.heroku.com/apps/api-ricknmorty-lucas",
+      "description": "API production server"
     }
   ],
   "paths": {
