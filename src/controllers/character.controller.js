@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const getAllCharacters = async (req, res) => {
   const characters = await characterService.getAllService();
   if (characters.length == 0) {
-    return res.status(404).send({ message: "Character not found!" });
+    return res.status(404).send({ message: "There is no characters!" });
   }
   res.send(characters);
 };

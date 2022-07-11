@@ -23,6 +23,6 @@ const characterScheme = new mongoose.Schema({
   },
 });
 
-const Character = mongoose.model('character', characterScheme );
+const Character = mongoose.model('Character', characterScheme, 'character' );
 
 module.exports = Character;
