@@ -8,8 +8,8 @@ routes.use('/api-docs', swaggerUi.serve);
 routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 
-routes.get('/',controllerCharacter.getAllCharacters);
-routes.get('/:id', idValidation , controllerCharacter.getByIdCharacter);
+routes.get('/All',controllerCharacter.getAllCharacters);
+routes.get('/ByID/:id', idValidation , controllerCharacter.getByIdCharacter);
 routes.post('/', bodyObjectValidation, controllerCharacter.createCharacterController);
 routes.put('/:id', idValidation, bodyObjectValidation , controllerCharacter.updatedCharacterController);
 routes.delete('/:id', idValidation, controllerCharacter.deleteCharacterController);
