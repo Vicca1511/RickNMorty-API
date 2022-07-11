@@ -20,7 +20,7 @@ const getByIdCharacter = async (req, res) => {
 
 const createCharacterController = async (req, res) => {
   const character = req.body;
-  const newCharacter = await characterService.createCharacterService(task);
+  const newCharacter = await characterService.createCharacterService(character);
   res.status(201).send(newCharacter);
 };
 

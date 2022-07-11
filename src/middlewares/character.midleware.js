@@ -10,7 +10,7 @@ const idValidation = (req, res, next) => {
 
 const bodyObjectValidation = (req, res, next) => {
     const character = req.body;
-    if (!character || !character.nome || !character.descricao ||!character.username || !character.password || !character.photo) {
+    if (!character || !character.name || !character.username ||!character.password || !character.email || !character.photo) {
 
         return res.status(400).send({ message: 'You need provide all the fields required' });
 
