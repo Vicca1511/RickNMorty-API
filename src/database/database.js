@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DATABASE_URL = "mongodb://localhost:27017/rick-and-morty";
+const DATABASE_URL = "mongodb+srv://Viccari:Viccari1234@api-ricknmorty.70ixvtx.mongodb.net/?retryWrites=true&w=majority";
 
 function connectToDb() {
   mongoose
