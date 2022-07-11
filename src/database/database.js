@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DATABASE_URL = "mongodb+srv://Viccari:Viccari1234@api-ricknmorty.70ixvtx.mongodb.net/?retryWrites=true&w=majority";
+const DATABASE_URL = process.env.URI_DATABASE;
 
 function connectToDb() {
   mongoose
