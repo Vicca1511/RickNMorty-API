@@ -1,5 +1,13 @@
-const User = require("../users/User");
+const User = require("../Models/Character");
+const jwt = require("jsonwebtoken");
 
-const loginService = async (name) => User.findOne({name:name}).select("+password");
+const loginService = async (email) => User.findOne({email:email}).select("+password");
+const generateToken = (userId) => jwt.sign({id: userId }, process.env.SECRETKEY, { expiresIn: 86400 });
 
-module.exports ={loginService}
+
+
+module.exports = { loginService, generateToken };
+
+
+
+

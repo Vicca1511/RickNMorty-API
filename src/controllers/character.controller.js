@@ -1,5 +1,7 @@
+require('dotenv').config();
 const characterService = require("../Services/character.service");
-const mongoose = require("mongoose");
+const authService = require("../auth/auth.service");
+
 
 const getAllCharacters = async (req, res) => {
   const characters = await characterService.getAllService();
@@ -19,9 +21,42 @@ const getByIdCharacter = async (req, res) => {
 };
 
 const createCharacterController = async (req, res) => {
-  const character = req.body;
-  const newCharacter = await characterService.createCharacterService(character);
-  res.status(201).send(newCharacter);
+  const {name , username , email, password , photo} = req.body;
+  if (!name || !username || !email || !password ){
+    return res.status(400).send({ message: "Fill all fields!" });
+  }
+  
+  const findUsername = await characterService.findByUsername(username);
+  const findEmail = await characterService.findByEmail(email)
+
+  if(findEmail){
+    return res.status(400).send({ message: "This email is already in use."});  
+  }
+
+  if(findUsername){
+    return res.status(400).send({message: "This username is already in use"} );
+  }
+
+
+  const user = await characterService
+    .createCharacterService(req.body)
+    .catch((err) => console.log(err));
+    
+    if(!user){
+      return res.status(400).send({ message: "Error creating character" });
+    }
+    const token = authService.generateToken(user.id);
+
+  res.status(201).send({
+    user: {
+      id:user.id,
+      name,
+      username,
+      email,
+      photo,
+    },
+    token,
+  });
 };
 
 const updatedCharacterController = async (req, res) => {
@@ -49,4 +84,3 @@ module.exports = {
   updatedCharacterController,
   deleteCharacterController,
 };
-

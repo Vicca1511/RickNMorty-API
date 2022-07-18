@@ -1,24 +1,24 @@
-const authService = require('./auth.service');
-const bcrypt = require('bcryptjs');
+require("dotenv").config();
+const authService = require("./auth.service");
+const bcrypt = require("bcryptjs");
 
 const loginController = async (req, res) => {
-
-  const { name, password } = req.body;
-
-  const user = await authService.loginService(name);
-
+  const { email, password } = req.body;
+  const user = await authService.loginService(email);
   if (!user) {
-    return res.status(400).send({ message: "Inexistent User"})
+    return res.status(400).send({ message: "Inexistent User" });
   }
 
-  const isPasswordOkay = await bcrypt.compare(password , user.password);
-
+  const isPasswordOkay = await bcrypt.compare(password, user.password);
   if (!isPasswordOkay) {
-    return res.status(400).send({ message: "Password is incorrect"});
+    return res.status(400).send({ message: "Password is incorrect" });
   }
 
-  res.send(user);
+  const token = authService.generateToken(user.id);
 
-}
+  console.log(token);
 
-module.exports = {loginController};
+  res.send({ token });
+};
+
+module.exports = { loginController };
