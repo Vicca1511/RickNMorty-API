@@ -1,18 +1,19 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const connectToDb = require('./src/database/database');
-const routes = require('./src/Routes/character.route')
-const userRoutes = require('./src/users/user.route');
+const connectToDb = require("./src/database/database");
+const routes = require("./src/Routes/character.route");
+const userRoutes = require("./src/users/user.route");
+const authRoutes = require("./src/auth/auth.route");
 
 const port = process.env.PORT || 3001;
 const app = express();
 
-
 app.use(cors());
 app.use(express.json());
-app.use('/character', routes)
-app.use('/users', userRoutes)
+app.use("/character", routes);
+app.use("/users", userRoutes);
+app.use("/auth", authRoutes);
 
 connectToDb();
 
