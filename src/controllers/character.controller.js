@@ -1,6 +1,6 @@
 require('dotenv').config();
-const characterService = require("../../Services/character.service");
-const authService = require("../../auth/auth.service");
+const characterService = require("../Services/character.service");
+const authService = require("../auth/auth.service");
 
 
 const getAllCharacters = async (req, res) => {

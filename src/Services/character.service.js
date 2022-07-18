@@ -1,4 +1,4 @@
-const Character = require("../Characters/Models/Character");
+const Character = require("../Models/Character");
 
 const getAllService = async () => {
   const allCharacter = await Character.find();
