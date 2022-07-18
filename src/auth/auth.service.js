@@ -1,4 +1,4 @@
-const User = require("../Models/Character");
+const User = require("../Characters/Models/Character");
 const jwt = require("jsonwebtoken");
 
 const loginService = async (email) => User.findOne({email:email}).select("+password");
