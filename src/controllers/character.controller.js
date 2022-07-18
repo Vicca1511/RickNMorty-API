@@ -49,3 +49,4 @@ module.exports = {
   updatedCharacterController,
   deleteCharacterController,
 };
+

@@ -25,7 +25,11 @@ const createUserController = async (req, res) => {
 };
 
 const getAllUserController = async (req, res) => {
-  res.send({ message: "find all users" });
+    const users = await userService.getAllService();
+    if (users.length == 0) {
+      return res.status(404).send({ message: "There is no characters!" });
+    }
+    res.send(users);
 };
 
 module.exports = { createUserController, getAllUserController };
